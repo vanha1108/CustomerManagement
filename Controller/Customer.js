@@ -2,10 +2,9 @@ const Customer = require('../DB/Customer');
 
 const addCustomer = async(req, res, next) =>{
     const{code, firstname, lastname, birthday, sex, address, phone, email, totalmoney, visit, level, purchases} = req.body;
-
     const checkCode = await Customer.findOne({code: code});
     if(checkCode) {
-        return res.status.json({
+        return res.status(500).json({
             success: false,
             code: 500,
             message: "Code customer already exists!",
@@ -41,7 +40,7 @@ const addCustomer = async(req, res, next) =>{
 
 const updateCustomer = async (req, res, next) => {
     const code = req.params.code;
-    const{firstname, lastname, birthday, sex, address, phone, totalmoney, visit, level, purchases} = req.body;
+    var {firstname, lastname, birthday, sex, address, phone, email, totalmoney, visit, level, purchases} = req.body;
 
     const customer = await Customer.findOne({code: code});
     if (!customer) {
@@ -68,7 +67,7 @@ const updateCustomer = async (req, res, next) => {
     customer.level = level;
     customer.purchases = Number(purchases);
 
-    await customerModel.save();
+    await customer.save();
     return res.status(200).json({
         code: 200,
         message: "Update customer succesfull!",
@@ -77,8 +76,8 @@ const updateCustomer = async (req, res, next) => {
 };
 
 const deleteCustomer = async (req, res, next) => {
-    const codeDelete = req.params.code;
-    const customerModel = await Customer.findOneAndDelete({code: code});
+    const code = req.params.code;
+    const customer = await Customer.findOneAndDelete({code: code});
     if (!customer) {
         return res.status(404).json({
             code: 404,

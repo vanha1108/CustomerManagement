@@ -25,7 +25,7 @@ var customerschema = new Schema(
         type: String,
     },
     email: {
-        String,
+        type: String,
     },
     totalmoney: {
         type: String,
