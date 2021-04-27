@@ -1,7 +1,7 @@
 const Employee = require('../DB/Employee')
 
 const addEmployee = async (req, res, next) => {
-    const{code, type, firstname, lastname, birthday, sex, address, phone, username, password, role} = req.body;
+    var {code, type, firstname, lastname, birthday, sex, address, phone, username, password, role} = req.body;
 
     const checkCode = await Employee.findOne({code: code});
     if (checkCode) {
@@ -49,7 +49,7 @@ const addEmployee = async (req, res, next) => {
 
 const updateEmployee = async (req, res, next) => {
     const code = req.params.code;
-    const{firstname, lastname, birthday, sex, address, phone, email, password} = req.body;
+    var {firstname, lastname, birthday, sex, address, phone, email, password} = req.body;
 
     const employee = await Employee.findOne({code: code});
     if (!code) {
@@ -98,8 +98,8 @@ const deleteEmployee = async (req, res, next) => {
 };
 
 const getAllEmployee = async (req, res, next) => {
-    const employees = Employee.find();
-    return res.status.json({
+    const employees = await Employee.find();
+    return res.status(200).json({
         code: 200,
         message: "Get all employee!",
         success: true,
@@ -109,7 +109,7 @@ const getAllEmployee = async (req, res, next) => {
 
 const getEmployeeByCode = async (req, res, next) => {
     const code = req.params.code;
-    const employee = Employee.findOne({code: code});
+    const employee = await Employee.findOne({code: code});
     if (!employee) {
         return res.status(404).json({
             code: 404,
