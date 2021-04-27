@@ -36,7 +36,7 @@ var customerschema = new Schema(
     level: {
         type: String,
     },
-    purchase: {
+    purchases: {
         type: Number,
     }
   },

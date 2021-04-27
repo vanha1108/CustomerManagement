@@ -1,7 +1,7 @@
 const Customer = require('../DB/Customer');
 
 const addCustomer = async(req, res, next) =>{
-    var{code, firstname, lastname, birthday, sex, address, phone, email, totalmoney, visit, level, purchase} = req.body;
+    var{code, firstname, lastname, birthday, sex, address, phone, email, totalmoney, visit, level, purchases} = req.body;
     const checkCode = await Customer.findOne({code: code});
     if(checkCode) {
         return res.status(500).json({
@@ -28,7 +28,7 @@ const addCustomer = async(req, res, next) =>{
     customer.totalmoney = totalmoney;
     customer.visit = Number(visit);
     customer.level = level;
-    customer.purchase = Number(purchase);
+    customer.purchases = Number(purchases);
 
     let customerModel = new Customer(customer);
     await customerModel.save();
@@ -40,7 +40,7 @@ const addCustomer = async(req, res, next) =>{
 
 const updateCustomer = async (req, res, next) => {
     const code = req.params.code;
-    var {firstname, lastname, birthday, sex, address, phone, email, totalmoney, visit, level, purchase} = req.body;
+    var {firstname, lastname, birthday, sex, address, phone, email, totalmoney, visit, level, purchases} = req.body;
 
     const customer = await Customer.findOne({code: code});
     if (!customer) {
@@ -65,7 +65,7 @@ const updateCustomer = async (req, res, next) => {
     customer.totalmoney = totalmoney;
     customer.visit = Number(visit);
     customer.level = level;
-    customer.purchase = Number(purchase);
+    customer.purchases = Number(purchases);
 
     await customer.save();
     return res.status(200).json({
