@@ -1,7 +1,7 @@
 const Customer = require('../DB/Customer');
 
 const addCustomer = async(req, res, next) =>{
-    const{code, firstname, lastname, birthday, sex, address, phone, email, totalmoney, visit, level, purchases} = req.body;
+    var{code, firstname, lastname, birthday, sex, address, phone, email, totalmoney, visit, level, purchases} = req.body;
     const checkCode = await Customer.findOne({code: code});
     if(checkCode) {
         return res.status(500).json({
