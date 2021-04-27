@@ -1,4 +1,3 @@
-const { response } = require('../app');
 const Customer = require('../DB/Customer');
 
 const addCustomer = async(req, res, next) =>{
