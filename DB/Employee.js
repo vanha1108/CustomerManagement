@@ -6,9 +6,6 @@ var employeeschema = new Schema(
     code: {
       type: String,
     },
-    type: {
-      type: String,
-    },
     firstname: {
       type: String,
     },
