@@ -1,0 +1,74 @@
+h3.card-title {
+    font-family: segoe;
+    font-size:20px;
+    color:#000 !important;
+}
+h6.col-form-label{
+    color:#000;
+}
+.card h5,.card h4,.card label,.card h3{
+    color: #000;
+}
+.navbar-brand{
+    font-family: segoe;
+    font-weight: bold;
+}
+.abc{
+    margin:0;
+}
+.name-nav{
+    font-family: segoe;
+    font-weight: 200;
+    font-size:12px;
+}
+.name-campany{
+    font-weight: bold !important;
+    font-family: segoe;
+    font-size: 20px;
+}
+.abc{
+    background: #ffffff;
+    box-shadow: 0 1px 15px 0 rgb(123 123 123 / 5%);
+    color:#000;
+}
+.abc th,.abc td{
+    color:#000 !important;
+}
+.form-control{
+    color: #000;
+}
+.table-responsive{
+    overflow:hidden;
+}
+.content{
+    background: rgb(255 255 255 / 95%) !important;
+}
+.ps{
+    background: rgba(0,0,0,0.9);
+}
+.test1{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction:column;
+}
+.test1 b{
+    color: #000;
+}
+.haiben{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+}
+.haiben button{
+    margin-right: 15px;
+}
+.haiben .btn-sm{
+    background: #000;
+}
+.form-check{
+    margin-top: 0;
+}
+.form-control{
+    color: #000 !important;
+}

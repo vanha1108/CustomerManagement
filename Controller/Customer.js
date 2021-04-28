@@ -33,7 +33,7 @@ const addCustomer = async(req, res, next) =>{
     let customerModel = new Customer(customer);
     await customerModel.save();
     return res.status(200).json({
-        code: 200, 
+        code: 200,
         message: "Add customer successfull", 
         success: true});
 };
