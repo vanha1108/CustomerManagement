@@ -12,7 +12,7 @@ var customerschema = new Schema(
     lastname: {
       type: String,
     },
-    birthdate: {
+    birthday: {
       type: Date,
     },
     sex: {
