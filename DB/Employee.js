@@ -15,7 +15,7 @@ var employeeschema = new Schema(
     lastname: {
       type: String,
     },
-    birthdate: {
+    birthday: {
       type: Date,
     },
     sex: {

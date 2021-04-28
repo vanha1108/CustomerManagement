@@ -1,7 +1,7 @@
 const Employee = require('../DB/Employee')
 
 const addEmployee = async (req, res, next) => {
-    var {code, type, firstname, lastname, birthday, sex, address, phone, username, password, role} = req.body;
+    var {code, type, firstname, lastname, birthday, email, sex, address, phone, username, password, role} = req.body;
 
     const checkCode = await Employee.findOne({code: code});
     if (checkCode) {
@@ -27,6 +27,7 @@ const addEmployee = async (req, res, next) => {
     employee.firstname = firstname;
     employee.lastname = lastname;
     employee.birthday = birthday;
+    employee.email = email;
     if (sex == "Female") {
         sex = false;
     } else {
